@@ -2,8 +2,11 @@
 #include <stdlib.h>
 
 int main(){
-    char x[] = "hu",y[] = "xing",z[] = "yu";
-    printf("%s%s%s\n",x,y,z);
+    int a=1,b=2;
+    printf("%d\n",a+b);
+    printf("%c",7);
     system("pause");
     return 0;
 }
+
+//转义字符

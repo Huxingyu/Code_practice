@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 int main(){
-    char x[] = "hu",y[] = "xing",z[] = "yu";
-    printf("%s%s%s\n",x,y,z);
+    bool a=1,b=false;
+    int c=1,d=1;
+    printf("%d%d%d\n",a,b,c==d);
     system("pause");
     return 0;
 }
