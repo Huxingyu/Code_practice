@@ -3,9 +3,8 @@
 #include <math.h>
 
 int main(){
-    double x = -3.14;
-    printf("%.2f\n",x);
-    printf("%.2f\n",abs(x));
+    double x = 3.14;
+    printf("%.0f %.0f\n",floor(x),ceil(x));     //这儿仍旧得是.f
     system("pause");
     return 0;
 }

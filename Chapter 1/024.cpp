@@ -3,9 +3,8 @@
 #include <math.h>
 
 int main(){
-    double x = -3.14;
-    printf("%.2f\n",x);
-    printf("%.2f\n",abs(x));
+    double x = sqrt(9.0);
+    printf("%.1f\n",x);
     system("pause");
     return 0;
 }
