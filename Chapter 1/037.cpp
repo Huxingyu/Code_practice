@@ -7,6 +7,9 @@ int main(){
     for(int i=0;i<x;i++){
         sum+=a[i];
     }
+    for(int i=0;i<x;i++){
+        printf("a[%d]=%d\n",i,a[i]);
+    }
     printf("%d\n",sum);
     system("pause");
     return 0;
