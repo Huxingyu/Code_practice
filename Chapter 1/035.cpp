@@ -4,7 +4,10 @@
 int main(){
     int sum=0;
     for(int i=1;i<=100;i++){
-        sum +=i;
+        sum+=i;
+        if(sum>2000){
+            break;
+        }
     }
     printf("%d\n",sum);
     system("pause");

@@ -4,7 +4,10 @@
 int main(){
     int sum=0;
     for(int i=1;i<=100;i++){
-        sum +=i;
+        if(i%2==1){
+            continue;
+        }
+        sum+=i;
     }
     printf("%d\n",sum);
     system("pause");
