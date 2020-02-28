@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 int main(){
-    char y[5][10]={};
+    char x[10]={};
     for(int i=0;i<3;i++){
-        gets(y[i]);
+        x[i]=getchar();
     }
     for(int i=0;i<3;i++){
-        puts(y[i]);
+        putchar(x[i]);
     }
     system("pause");
     return 0;
