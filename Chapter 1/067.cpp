@@ -2,10 +2,11 @@
 #include <stdlib.h>
 
 int main(){
-    int a;
-    int *x=&a;
-    a=233;
-    printf("%d %d\n",x,&a);
+    int x;
+    int *p;
+    p=&x;
+    *p = 233;
+    printf("%d\n",x);
     system("pause");
     return 0;
 }
