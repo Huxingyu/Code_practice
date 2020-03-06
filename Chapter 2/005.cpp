@@ -32,4 +32,4 @@ int main(){
     return 0;
 }
 
-//死循环：while处
+//死循环：while处,==错误的写成了=
