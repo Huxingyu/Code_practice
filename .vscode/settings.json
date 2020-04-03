@@ -47,7 +47,9 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "spellright.language": [],
+    "spellright.language": [
+        "en"
+    ],
     "spellright.documentTypes": [
         "markdown",
         "latex",
