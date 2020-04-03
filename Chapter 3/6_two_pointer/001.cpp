@@ -19,3 +19,5 @@ int main(){
     system("pause");
     return 0;
 }
+
+//时间复杂度->O(N^2)
