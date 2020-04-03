@@ -4,19 +4,20 @@
 
 void merge(int num[],int l1,int r1,int l2,int r2){
     int ans[max],n=0;
-    while(l1<=r1 && l2<=r2){
+    int i=l1,j=l2;
+    while(i<=r1 && j<=r2){
         if(num[l1]<=num[l2]){
-            ans[n++]=num[l1++];
+            ans[n++]=num[i++];
         }
         else{
-            ans[n++]=num[l2++];
+            ans[n++]=num[j++];
         }
     }
-    if(l1<=r1){
-        ans[n++]=num[l1++];
+    while(i<=r1){
+        ans[n++]=num[i++];
     }
-    if(l2<=r2){
-        ans[n++]=num[l2++];
+    while(j<=r2){
+        ans[n++]=num[j++];
     }
     for(int i=0;i<n;i++){
         num[l1+i]=ans[i];
