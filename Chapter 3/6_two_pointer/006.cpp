@@ -4,19 +4,20 @@
 
 void merge(int num[],int l1,int r1,int l2,int r2){
     int ans[max],n=0;
-    while(l1<=r1 && l2<=r2){
-        if(num[l1]<=num[l2]){
-            ans[n++]=num[l1++];
+    int i=l1,j=l2;
+    while(i<=r1 && j<=r2){
+        if(num[i]<=num[j]){
+            ans[n++]=num[i++];
         }
         else{
-            ans[n++]=num[l2++];
+            ans[n++]=num[j++];
         }
     }
-    if(l1<=r1){
-        ans[n++]=num[l1++];
+    while(i<=r1){
+        ans[n++]=num[i++];
     }
-    if(l2<=r2){
-        ans[n++]=num[l2++];
+    while(j<=r2){
+        ans[n++]=num[j++];
     }
     for(int i=0;i<n;i++){
         num[l1+i]=ans[i];
@@ -36,10 +37,13 @@ int main(){
     int num[]={66,12,33,57,64,27,18};
     int x=sizeof(num)/4;
     merge_sort(num,0,x-1);
-    for(int i=0;i<x-1;i++){
+    for(int i=0;i<x;i++){
         printf("%d ",num[i]);
     }
     printf("\n");
     system("pause");
     return 0;
 }
+
+//6-[1],7-[2],8/9-[web]
+//10-[success]
