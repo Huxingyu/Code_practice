@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-
-void swap(int &a,int &b){
-    int temp=a;
-    a=b;
-    b=temp;
-}
 
 int partition(int num[],int left,int right){
-    int x=rand()%10+0;
-    swap(num[left],num[x]);
     int temp=num[left];
     while(left<right){
         while(left<right && num[right]>temp){
@@ -35,16 +26,12 @@ void quicksort(int num[],int left,int right){
 }
 
 int main(){
-    int num[11]={35,18,16,72,24,65,12,88,46,28,55};
-    int x=sizeof(num)/4;
-    quicksort(num,0,x-1);
-    for(int i=0;i<x;i++){
+    int num[]={3,1,2,5,6,4};
+    int n=sizeof(num)/4;
+    quicksort(num,0,n-1);
+    for(int i=0;i<n;i++){
         printf("%d ",num[i]);
     }
-    printf("\n");
     system("pause");
     return 0;
 }
-
-//基于随机选择算法的快速排序
-//problem
