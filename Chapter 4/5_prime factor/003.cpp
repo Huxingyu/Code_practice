@@ -21,31 +21,38 @@ void cal_prime(){
     }
 }
 
-void cal_frac(int x){
-    int y=(int)sqrt(1.0*x);
-    for(int i=0;i<pNum && prime[i]<y;i++){
-        if(x%prime[i]==0){
+void cal_frac(int n){
+    int y=(int)sqrt(1.0*n);
+    for(int i=0;i<pNum && prime[i]<=y;i++){     //e1
+        if(n%prime[i]==0){
             ans[fNum].fra=prime[i];
             ans[fNum].num=0;
-            while(x%prime[i]==0){
+            while(n%prime[i]==0){               //e3
                 ans[fNum].num++;
-                x/=prime[i];
+                n/=prime[i];
             }
             fNum++;
         }
+        if(n==1){
+            break;
+        }
     }
-    if(x!=1){
-        ans[fNum].fra=x;
-        ans[fNum].num=1;
+    if(n!=1){
+        ans[fNum].fra=n;
+        ans[fNum++].num=1;          //e2
     }
 }
 
 int main(){
     cal_prime();
-    cal_frac(10);
+    cal_frac(1);
     for(int i=0;i<fNum;i++){
-        printf("%d*%d\n",ans[i].fra,ans[i].num);
+        printf("%d^%d",ans[i].fra,ans[i].num);
+        if(i<fNum-1){
+            printf("*");
+        }
     }
+    printf("\n");
     system("pause");
     return 0;
 }
