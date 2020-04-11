@@ -10,7 +10,6 @@ int hash_change(char x[],int n){
     for(int i=0;i<n;i++){
         sum=sum*26+(x[i]-'A');
     }
-    num[sum]=1;
     return sum;
 }
 
