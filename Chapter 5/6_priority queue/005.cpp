@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 #include <queue>
 
@@ -24,6 +23,7 @@ int main(){
     q.push(f1);
     q.push(f2);
     q.push(f3);
+    cout<<q.top().name<<" "<<q.top().price<<endl;
     system("pause");
     return 0;
 }
