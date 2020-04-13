@@ -13,7 +13,8 @@ class stack{
         void push(int x);
         void pop();
         int top();
-    private:
+    private:    
+        void test();            //C++类中私有变量不允许在类之外的其他任何地方访问
         int TOP;
         int num[max];
 };
@@ -45,6 +46,10 @@ void stack::pop(){
 
 int stack::top(){
     return num[TOP];
+}
+
+void test(){
+    printf("hoho");
 }
 
 int main(){
