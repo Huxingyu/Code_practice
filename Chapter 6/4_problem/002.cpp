@@ -24,8 +24,9 @@ int main(){
             temp=false;
             break;
         }
-        while(st.empty()!=true && st.top()==arr[crruent++]){
+        while(st.empty()!=true && st.top()==arr[crruent]){
             st.pop();
+            crruent++;
         }
     }
     if(st.empty()==true && temp==true){
