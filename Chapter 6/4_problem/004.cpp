@@ -19,6 +19,8 @@ int main(){
         for(int i=1;i<=m;i++){
             scanf("%d",&arr[i]);
         }
+        temp=true;
+        crruent=1;
         for(int i=1;i<=m;i++){
             st.push(i);
             if(st.size()>n){
@@ -35,8 +37,6 @@ int main(){
         }else{
             printf("no\n");
         }
-        temp=true;
-        crruent=1;
     }
     system("pause");
     return 0;

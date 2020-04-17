@@ -33,11 +33,6 @@ int main(){
         printf("ok");
     }else{
         printf("no");
-        printf("\n");
-        while(!st.empty()){
-            printf("%d ",st.top());
-            st.pop();
-        }
     }
     system("pause");
     return 0;
