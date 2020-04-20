@@ -1,5 +1,3 @@
-//DFS-剪枝算法
-
 #include <stdio.h>
 #include <stdlib.h>
 #define max 10
@@ -33,3 +31,5 @@ int main(){
     system("pause");
     return 0;
 }
+
+//DFS-剪枝算法
