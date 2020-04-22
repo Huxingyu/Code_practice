@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:/MinGW/include**"
+                "C:/MinGW/include**",
+                "D:/Qt/Qt5.9.0/Tools/mingw530_32/opt/include"
             ],
             "defines": [
                 "_DEBUG",
