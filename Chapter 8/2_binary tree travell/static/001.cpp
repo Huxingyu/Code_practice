@@ -16,7 +16,7 @@ int newNode(int x){
     Node[index].data=x;
     Node[index].lchild=-1;
     Node[index].rchild=-1;
-    return index+1;
+    return index++;             //self-plus
 }
 
 void search(int root,int x,int new_data){
