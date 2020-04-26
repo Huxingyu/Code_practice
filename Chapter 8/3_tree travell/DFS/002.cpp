@@ -2,17 +2,19 @@
 #include <stdlib.h>
 #define max 10
 
-int n,m,weight[max],value[max],max_value=0;
+int n,m,max_value=0,value[max],weight[max];
 
 void DFS(int index,int sum_weight,int sum_value){
     if(index==n){
-        if(sum_weight<=m && sum_value>max_value){
-            max_value=sum_value;
-        }
         return;
     }
     DFS(index+1,sum_weight,sum_value);
-    DFS(index+1,sum_weight+weight[index],sum_value+value[index]);
+    if(sum_weight+weight[index]<=m){
+        if(sum_value+value[index]>max_value){
+            max_value=sum_value+value[index];
+        }
+        DFS(index+1,sum_weight+weight[index],sum_value+value[index]);
+    }
 }
 
 int main(){
