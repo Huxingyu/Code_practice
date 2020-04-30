@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <algorithm>
 
 using namespace std;
 
 struct node{
-    int data,height;
+    int data;
+    int height;
     node* lchild;
     node* rchild;
 };
@@ -19,17 +19,22 @@ node* newNode(int x){
     return root;
 }
 
-int getheight(node* root){
+int get_height(node* root){
     if(root==NULL){
         return 0;
     }
     return root->height;
 }
 
-int getbalancefactor(node* root){
-    return abs(getheight(root->lchild)-getheight(root->rchild));
+int update_height(node* root){
+    return max(root->lchild->height,root->rchild->height)+1;
 }
 
-void updateheight(node* root){
-    root->height=max(getheight(root->lchild),getheight(root->rchild))+1;
+void R(node* &root){
+    node* temp=root->lchild;
+    root->lchild=temp->rchild;
+    temp->rchild=root;
+    update_height(root);
+    update_height(temp);
+    root=temp;
 }
