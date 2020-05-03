@@ -28,3 +28,4 @@ void search(node* root,int x){
         search(root->rchild,x);
     }
 }
+
