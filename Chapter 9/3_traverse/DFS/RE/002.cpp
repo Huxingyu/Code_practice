@@ -12,7 +12,7 @@ void DFS(int index,int sum_weight,int sum_value){
         return;
     }
     DFS(index+1,sum_weight,sum_value);
-    if(sum_weight<=w){
+    if(sum_weight+weight[index]<=w){
         if(sum_value+value[index]>max_value){
             max_value=sum_value+value[index];
         }
