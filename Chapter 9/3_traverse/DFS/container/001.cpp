@@ -15,6 +15,9 @@ int main(){
     for(it=mp.begin();it!=mp.end();it++){
         printf("%c %d\n",it->first,it->second);
     }
+    if(mp.find('a')!=mp.end()){
+        printf("ii");
+    }
     system("pause");
     return 0;
 }
