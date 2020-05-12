@@ -3,13 +3,12 @@
 #include <string.h>
 #include <queue>
 #include <vector>
-#define max 10
+#define max 100
 
 using namespace std;
 
 struct node{
-    int id;
-    int layer;
+    int id,layer;
 };
 
 vector<node> vt[max];
@@ -23,7 +22,7 @@ int BFS(int s,int k){
     start.id=s;
     start.layer=0;
     q.push(start);
-    inq[s]=true;
+    inq[start.id]=true;
     while(q.empty()!=true){
         node top=q.front();
         q.pop();
