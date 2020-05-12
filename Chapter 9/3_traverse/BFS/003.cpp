@@ -1,13 +1,17 @@
+//邻接表
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 #include <queue>
 #define max 10
 
 using namespace std;
 
-int inf=-1;
-int n,g[max][max];
+int n;
+int g[max][max];
 bool inq[max]={false};
+vector<int> vt[max];
 
 void BFS(int x){
     queue<int> q;
@@ -16,16 +20,17 @@ void BFS(int x){
     while(q.empty()!=true){
         int top=q.front();
         q.pop();
-        for(int i=0;i<n;i++){
-            if(inq[i]==false && g[top][i]>0){
-                inq[i]=true;
-                BFS(i);
+        for(int i=0;i<vt[top].size();i++){
+            int temp=vt[top][i];
+            if(inq[temp]==false){
+                q.push(temp);
+                inq[temp]=true;             
             }
         }
     }
 }
 
-void DFS_trave(){
+void BFS_trave(){
     for(int i=0;i<n;i++){
         if(inq[i]==false){
             BFS(i);
