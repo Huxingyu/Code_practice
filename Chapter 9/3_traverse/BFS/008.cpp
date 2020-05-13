@@ -1,54 +1,66 @@
-#include<stdlib.h>
-#include<iostream>
-#include<vector>
-#include<queue>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <vector>
+#include <queue>
 
 using namespace std;
 
+const int MAXV=1010;
+
 struct Node{
-	int id, level;
+	int id;
+	int layer;
 };
 
-int maxlevel, numforward;
-vector<Node> Adj[1001];
+vector<Node> Adj[MAXV];
+bool inq[MAXV]={false};
 
-void BFS(int start){
-	bool inq[1001] = {false};
+int BFS(int s,int L){
+	int numForward=0;
 	queue<Node> q;
-	q.push({start,0});
-	inq[start] = true;
-	while (!q.empty()){
-		Node now = q.front();
+	Node start;
+	start.id=s;
+	start.layer=0;
+	q.push(start);
+	inq[start.id]=true;
+	while(!q.empty()){
+		Node topNode=q.front();
 		q.pop();
-		for (int i = 0; i < Adj[now.id].size(); i++){
-			Node next = Adj[now.id][i];
-			next.level = now.level + 1;
-			if (!inq[next.id] && next.level <= maxlevel){
-				inq[next.id] = true;
+		int u=topNode.id;
+		for(int i=0;i<Adj[u].size();i++){
+			Node next=Adj[u][i];
+			next.layer=topNode.layer+1;
+			if(inq[next.id]==false && next.layer<=L){
 				q.push(next);
-				numforward++;
+				inq[next.id]=true;
+				numForward++;
 			}
 		}
 	}
+	return numForward;
 }
-int main()
-{
-	int n, m, followed, k, query;
-	scanf("%d%d", &n, &maxlevel);
-	for (int i = 1; i < n + 1; i++){
-		scanf("%d", &m);
-		for (int j = 0; j < m; j++){
-			scanf("%d", &followed);
-			Adj[followed].push_back({i,0});
+
+int main(){
+	Node user;
+	int n,L,numFollow,idFollow;
+	scanf("%d%d",&n,&L);
+	for(int i=1;i<=n;i++){
+		user.id=i;
+		scanf("%d",&numFollow);
+		for(int j=0;j<numFollow;j++){
+			scanf("%d",&idFollow);
+			Adj[idFollow].push_back(user);
 		}
 	}
-	scanf("%d", &k);
-	for (int i = 0; i < k; i++){
-		scanf("%d", &query);
-		numforward = 0;
-		BFS(query);
-		printf("%d\n", numforward);
+	int numQuery,s;
+	scanf("%d",&numQuery);
+	for(int i=0;i<numQuery;i++){	
+		memset(inq,false,sizeof(inq));
+		scanf("%d",&s);
+		int numForward=BFS(s,L);
+		printf("%d\n",numForward);
 	}
-    system("pause");
+	system("pause");
 	return 0;
 }

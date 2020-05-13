@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <queue>
 #include <vector>
+#include <queue>
+
 #define max 100
 
 using namespace std;
@@ -11,33 +12,33 @@ struct node{
     int id,layer;
 };
 
-vector<node> vt[max];
+vector<node> Adj[max];
 int n,k,id,id_num;
 bool inq[max]={false};
 
 int BFS(int s,int k){
-    int count=0;
+    int numForward=0;
     queue<node> q;
     node start;
     start.id=s;
     start.layer=0;
     q.push(start);
     inq[start.id]=true;
-    while(q.empty()!=true){
-        node top=q.front();
+    while(!q.empty()){
+        node topNode=q.front();
         q.pop();
-        int test=top.id;
-        for(int i=0;i<vt[top.id].size();i++){
-            node next=vt[top.id][i];
-            next.layer=start.layer+1;
+        int u=topNode.id;
+        for(int i=0;i<Adj[u].size();i++){
+            node next=Adj[u][i];
+            next.layer=topNode.layer+1;
             if(inq[next.id]==false && next.layer<=k){
                 q.push(next);
                 inq[next.id]=true;
-                count++;
+                numForward++;
             }
         }
     }
-    return count;
+    return numForward;
 }
 
 int main(){
@@ -48,12 +49,12 @@ int main(){
         scanf("%d",&id_num);
         for(int j=0;j<id_num;j++){
             scanf("%d",&id);
-            vt[id].push_back(user);
+            Adj[id].push_back(user);
         }
     }
     // for(int i=1;i<=n;i++){
-    //     for(int j=0;j<vt[i].size();j++){
-    //         printf("%d ",vt[i][j]);
+    //     for(int j=0;j<Adj[i].size();j++){
+    //         printf("%d ",Adj[i][j]);
     //     }
     //     printf("\n");
     // }
