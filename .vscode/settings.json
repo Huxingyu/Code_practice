@@ -48,7 +48,9 @@
         "typeinfo": "cpp",
         "set": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "xstring": "cpp",
+        "stdlib.h": "c"
     },
     "spellright.language": [
         "en"
