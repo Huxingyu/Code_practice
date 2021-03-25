@@ -50,7 +50,9 @@
         "queue": "cpp",
         "stack": "cpp",
         "xstring": "cpp",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "xutility": "cpp",
+        "xhash": "cpp"
     },
     "spellright.language": [
         "en"
