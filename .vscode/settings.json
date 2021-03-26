@@ -52,7 +52,8 @@
         "xstring": "cpp",
         "stdlib.h": "c",
         "xutility": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "xtree": "cpp"
     },
     "spellright.language": [
         "en"
