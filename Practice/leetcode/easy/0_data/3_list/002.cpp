@@ -1,4 +1,4 @@
-//creat listnode
+//翻转链表
 
 #include <iostream>
 #include <cstdlib>
@@ -13,20 +13,27 @@ struct listnode{
     listnode(int x,listnode *next):var(x),next(next){}
 };
 
-int main(){
-    int num;
-    cin>>num;
-    listnode *head=new listnode(num);
+listnode* creat(){
+    listnode *head=new listnode;
     listnode *p=head;
-    while(cin>>num){
-        listnode *q=new listnode(num);
+    for(int i=1;i<=5;i++){
+        listnode *q=new listnode(i);
         p->next=q;
-        p=p->next;
+        p=q;
     }
-    listnode *x=head;
-    while(x!=nullptr){
-        cout<<x->var<<" ";
-        x=x->next;
+    return head;
+}
+
+listnode *fanzhuan(listnode *head){
+
+}
+
+int main(){
+    listnode *head=creat();
+    listnode *p=head->next;
+    while(p!=nullptr){
+        cout<<p->var<<" ";
+        p=p->next;
     }
     system("pause");
     return 0;
