@@ -25,12 +25,26 @@ listnode* creat(){
 }
 
 listnode *fanzhuan(listnode *head){
-
+    listnode *p=head->next;
+    listnode *temp,*per=NULL;
+    while(p!=nullptr){
+        temp=per;
+        per=p;
+        p=p->next;
+        per->next=temp;
+    }
+    return per; 
 }
 
 int main(){
     listnode *head=creat();
     listnode *p=head->next;
+    while(p!=nullptr){
+        cout<<p->var<<" ";
+        p=p->next;
+    }
+    cout<<endl;
+    p=fanzhuan(head);
     while(p!=nullptr){
         cout<<p->var<<" ";
         p=p->next;
