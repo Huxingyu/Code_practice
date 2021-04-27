@@ -34,7 +34,7 @@ void insert(TreeNode *&root,int x){
 }
 
 TreeNode* creat(){
-    TreeNode *root=nullptr;     //这一点不要忘记
+    TreeNode *root=nullptr;   
     for(int i=1;i<5;i++){
         insert(root,i);
     }
