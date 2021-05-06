@@ -1,7 +1,8 @@
-//897. Increasing Order Search Tree
+//94. Binary Tree Inorder Traversal
 
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -16,23 +17,18 @@ struct TreeNode{
 };
 
 class Solution {
-private:
-    TreeNode* temp=nullptr;
 public:
-    TreeNode* increasingBST(TreeNode* root) {
-        TreeNode* ans=new TreeNode;
-        temp=ans;
+    vector<int> ans;
+    vector<int> inorderTraversal(TreeNode* root) {
         inorder(root);
-        return ans->right;
+        return ans;      
     }
-    void inorder(TreeNode* root){          //为什么引用造成无限循环？
+    void inorder(TreeNode* root){
         if(root==nullptr){
             return;
-        }
+        }      
         inorder(root->left);
-        root->left=nullptr;
-        temp->right=root;
-        temp=temp->right;
+        ans.push_back(root->val);
         inorder(root->right);
     }
 };
