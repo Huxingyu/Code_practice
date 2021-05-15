@@ -1,6 +1,5 @@
-//559. Maximum Depth of N-ary Tree
-
 #include <iostream>
+#include <cstdlib>
 #include <vector>
 
 using namespace std;
@@ -9,21 +8,24 @@ class Node{
     public:
         int val;
         vector<Node*> children;
-        Node(int _val):val(_val){}
-        Node(int _val,vector<Node*> _children):val(_val),children(_children){}
+        Node():val(0){}
+        Node(int x,vector<Node*> children):val(x),children(children){}
 };
 
 class Solution {
     public:
         int maxDepth(Node* root) {
-            int max=0;
+            return cal(root);
         }
-        void preorder(Node* root){
+        int cal(Node* root){
+            int ans=0;
             if(root==nullptr){
-                return;
+                return 0;
             }
             for(Node* child:root->children){
-                preorder(child);
+                int x=cal(child);
+                ans=max(x,ans);
             }
+            return ans+1;
         }
 };
