@@ -63,5 +63,6 @@
         "markdown",
         "latex",
         "plaintext"
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }
